@@ -2,11 +2,11 @@
 
 This mod is an alternative to FH5's very basic automatic transmission. This new realistic automatic transmission was made to replicate real world modern car gearbox behaviour.
 
-## How to use it
+## Setup
 
 **In the game** : go to *Settings > HUD* and turn "Data Out" on, set IP address to "127.0.0.1" and port to "1123" 
 
-Download and lauch the executable.
+[Download](https://github.com/t9dupuy/FH5-Realistic-Gearbox/releases/tag/v0.1-alpha) and lauch the executable.
 
 ## How does it work ?
 
