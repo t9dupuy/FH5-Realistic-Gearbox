@@ -4,6 +4,9 @@
 #include <windows.h>
 #include "packets.hpp"
 
+
+inline bool enableGearbox = true;
+
 void updateGearbox(forza::ForzaPackets &packets);
 
 inline float

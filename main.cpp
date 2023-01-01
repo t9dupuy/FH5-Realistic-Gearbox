@@ -32,6 +32,27 @@ void receive_convert_data()
   }
 }
 
+void keyListen()
+{
+  for(;;)
+  {
+    if(GetKeyState('U') & 0x8000)
+    {
+      enableGearbox = !enableGearbox;
+      if(enableGearbox)
+      {
+        std::cout << "Manual mode is now enabled\n";
+      } else
+      {
+        std::cout << "Manual mode is now disabled\n";
+      }
+      while(GetKeyState('U') & 0x8000);
+    }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  }
+}
+
 void mainLoop()
 {
   for(;;)
@@ -61,8 +82,13 @@ int main()
   std::thread udp_server(receive_convert_data);
   udp_server.detach();
 
+  std::thread keyListener(keyListen);
+  keyListener.detach();
+
   crs::keyboardInit();
 
+  std::cout << "Close this window when you are done using the mod!\n\n";
+  std::cout << "Press U to switch between automatic and manual mode\n";
   mainLoop();
 
   return 0;

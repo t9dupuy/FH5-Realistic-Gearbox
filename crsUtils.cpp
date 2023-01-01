@@ -2703,12 +2703,10 @@ keyboardInit()
 void
 keyboardPress(const char c)
 {
-    // Press the "A" key
     ip_.ki.wVk = VkKeyScanExA(c, GetKeyboardLayout(0)); // virtual-key code for the "a" key
     ip_.ki.dwFlags = 0; // 0 for key press
     SendInput(1, &ip_, sizeof(INPUT));
 
-    // Release the "A" key
     ip_.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
     SendInput(1, &ip_, sizeof(INPUT));
 }
