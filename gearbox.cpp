@@ -31,7 +31,7 @@
 void updateGearbox(forza::ForzaPackets &packets)
 {
   /// USER CODE BEGIN ///
-  if(packets.data["is_race_on"]) {
+  if(packets.data["is_race_on"] && enableGearbox) {
     int upshift = 0;
     int downshift = 0;
 
